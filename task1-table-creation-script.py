@@ -39,6 +39,8 @@ CREATE TABLE tasks (
 """
 
 # Функція перевірки існування таблиці
+
+
 def table_exists(cursor, table_name):
     query = sql.SQL("""
         SELECT EXISTS (
@@ -51,6 +53,8 @@ def table_exists(cursor, table_name):
     return cursor.fetchone()[0]
 
 # Функція створення таблиці
+
+
 def create_table(cursor, table_name, create_query):
     if table_exists(cursor, table_name):
         print(f"Таблиця '{table_name}' вже існує.")
@@ -59,6 +63,8 @@ def create_table(cursor, table_name, create_query):
         print(f"Таблицю '{table_name}' створено.")
 
 # Основна функція
+
+
 def create_tables():
     try:
         # Підключення до бази даних PostgreSQL
@@ -86,6 +92,7 @@ def create_tables():
             cursor.close()
         if conn:
             conn.close()
+
 
 if __name__ == "__main__":
     create_tables()
